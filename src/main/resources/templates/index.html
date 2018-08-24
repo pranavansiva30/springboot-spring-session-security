@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <link rel="stylesheet" type="text/css"
+          th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+
+    <link th:href="@{/css/main.css}" rel="stylesheet" />
+    <title>Index</title>
+
+</head>
+<body>
+
+<!-- Fixed navbar -->
+<nav class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Session Application</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Home</a></li>
+                <li ><a href="/user/activesessionusers">users</a></li>
+                <li ><a href="/user/resetpassword">Reset Password</a></li>
+                <li ><a href="/logout">Logout</a></li>
+
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="generic-container">
+    <div class="panel panel-default">
+        <div class="panel-heading"><span class="lead">Reset Password</span></div>
+
+
+
+        <div class="panel-body">
+
+            <div>
+                <div class="row">
+                    <form th:action="@{/messages}"   method="post" class="form-horizontal">
+
+
+                        <div class="row">
+
+                            <div class="form-group col-md-12">
+
+                                <label for="msg" class="col-md-2 control-lable">Message</label>
+                                <div class="col-md-4">
+                                    <textarea name="msg" cols="40" rows="4" class="form-control"></textarea>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="form-actions floatRight">
+
+                                <button type="submit" class="btn btn-success">Submit</button>
+
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading"><span class="lead">Messages </span></div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Message</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="m : ${messages}">
+                        <td th:text="${m}">msg</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container -->
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted"> <strong>Copyright &copy; 2018 <a href="">Pearson</a>.</strong> All rights reserved.</p>
+    </div>
+</footer>
+
+<script
+        th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+
+<script th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+
+</body>
+
+</html>
